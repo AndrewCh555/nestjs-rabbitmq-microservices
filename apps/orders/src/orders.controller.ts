@@ -8,7 +8,7 @@ export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
   @Post()
-  @UseGuards(JwtAuthGuard)
+  @UseGuards()
   async createOrder(@Body() request: CreateOrderRequest, @Req() req: any) {
     return this.ordersService.createOrder(request, req.cookies?.Authentication);
   }
